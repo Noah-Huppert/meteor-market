@@ -27,6 +27,7 @@ A simple marketplace web app built on top of Meteor JS
 | id          | Integer |                |
 | title       | String  |                |
 | description | String  |                |
+| image_url   | String  |                |
 | price       | Float   |                |
 
 ## Market Item Comment
