@@ -1,0 +1,21 @@
+<head>
+    <title> Meteor Market</title>
+
+    <!-- Google Fonts: https://www.google.com/fonts#UsePlace:use/Collection:Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <header>
+        <a class="title">Meteor Market</a>
+
+        <div id="header-user">
+            {{#if currentUser}}
+                Welcome {{currentUser.profile.name}}<br>
+                <a href="#" id="header-user-logout">Logout</a>
+            {{else}}
+                {{> loginButtons}}
+            {{/if}}
+        </div>
+    </header>
+</body>

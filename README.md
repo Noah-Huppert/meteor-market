@@ -3,13 +3,7 @@ A simple marketplace web app built on top of Meteor JS
 
 # Models
 ## User
-| Key        | Type    | Notes          |
-| ---------- | ------- | -------------- |
-| id         | Integer | Auto-increment |
-| first_name | String  |                |
-| last_name  | String  |                |
-| email      | String  |                |
-| avatar_url | String  |                |
+User is handled by the [Meteor Accounts Api](http://docs.meteor.com/#/full/accounts_api)
 
 ## Provider Access Token
 | Key           | Type      | Notes |
