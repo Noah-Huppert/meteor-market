@@ -1,0 +1,71 @@
+@import "./palette.scss";
+
+$spec-toolbar-height: 56px;
+$spec-toolbar-title-margin-left: 72px;
+
+body{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.toolbar{
+    width: 100%;
+    height: $spec-toolbar-height;
+    margin-bottom: 10px;
+    background: $primary-color;
+    box-shadow: 0px 3px 5px gray;
+    color: $primary-color-text;
+
+    .title{
+        height: $spec-toolbar-height;
+        line-height: $spec-toolbar-height;
+        margin-left: $spec-toolbar-title-margin-left;
+        font-size: 18px;
+    }
+}
+
+.card{
+    width: 200px;
+    margin: 5px;
+    display: inline-block;;
+    box-shadow: 1px 1px 5px gray;
+    border-radius: 3px;
+
+    img{
+        width: 100%;
+    }
+
+    .content{
+        margin: 5px;
+        margin-top: 10px;
+
+        div{
+            display: inline-block;
+        }
+
+        .title{
+            font-size: 18px;
+        }
+
+        .sub-title{
+            font-size: 14px;
+            opacity: 0.4;
+            float: right;
+        }
+
+        .actions{
+            margin-top: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            display: block;
+            border-top: 1px solid lighten(black, 90%);
+
+            .action{
+                color: $accent-color;
+                cursor: pointer;
+                font-weight: bold;
+            }
+        }
+    }
+}
