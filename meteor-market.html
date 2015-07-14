@@ -7,7 +7,7 @@
 
 <body>
     <header>
-        <a class="title">Meteor Market</a>
+        <a class="title" href="/">Meteor Market</a>
 
         <div id="header-user">
             {{#if currentUser}}
@@ -20,6 +20,50 @@
     </header>
 
     <div id="content">
-        Content
+        {{> Router}}
     </div>
 </body>
+
+<template name="home">
+    {{#each marketItems}}
+        {{> marketItemCard}}
+    {{/each}}
+</template>
+
+<template name="item">
+    <div class="marketItem">
+        <div class="header">
+            {{title}}
+            <span class="user">{{username user_id}}</span>
+        </div>
+
+        <img src="{{image_url}}">
+
+        <div class="side">
+            <div class="button">Buy</div>
+            <div class="price">${{price}}</div>
+
+            {{#if equals currentUser._id user_id}}
+                <div class="button" id="delete-item" data-id="{{id}}">Delete</div>
+            {{/if}}
+        </div>
+
+        <div class="description">{{description}}</div>
+    </div>
+</template>
+
+<template name="marketItemCard">
+    <a href="item/{{id}}" class="market-item-card">
+        <img src="{{image_url}}">
+
+        <div class="content">
+            <span class="title">{{title}}</span>
+
+            <div class="bottom">
+                <span class="price">${{price}}</span>
+
+                <span class="user">{{username user_id}}</span>
+            </div>
+        </div>
+    </a>
+</template>
