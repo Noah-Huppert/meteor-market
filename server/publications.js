@@ -1,3 +1,7 @@
 Meteor.publish("meteors", function(){
-    return Meteor.Models.Meteor.Collection.find({});
+    return MeteorModel.Collection.find({});
+});
+
+Meteor.publish("nextMeteorCountdown", function(){
+    return NextMeteorCountdownModel.Collection.find({});
 });

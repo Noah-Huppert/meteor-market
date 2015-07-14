@@ -11,6 +11,13 @@
 <body>
     <div class="toolbar">
         <div class="title">Meteor Market</div>
+        <div class="right">
+            {{#if not_equal NextMeteorCountdown -1}}
+                Next meteor arives in {{NextMeteorCountdown}} seconds
+            {{else}}
+                Maximum number of meteors reached
+            {{/if}}
+        </div>
     </div>
 
     {{> Router}}

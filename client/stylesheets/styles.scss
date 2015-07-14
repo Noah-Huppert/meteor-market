@@ -16,10 +16,22 @@ body{
     box-shadow: 0px 3px 5px gray;
     color: $primary-color-text;
 
+    div{
+        display: inline-block;
+    }
+
     .title{
         height: $spec-toolbar-height;
         line-height: $spec-toolbar-height;
         margin-left: $spec-toolbar-title-margin-left;
+        font-size: 18px;
+    }
+
+    .right{
+        height: $spec-toolbar-height;
+        line-height: $spec-toolbar-height;
+        margin-right: $spec-toolbar-title-margin-left;
+        float: right;
         font-size: 18px;
     }
 }
@@ -68,4 +80,9 @@ body{
             }
         }
     }
+}
+
+#buy-meteor{
+    width: 100%;
+    text-align: center;
 }
