@@ -11,11 +11,15 @@
 
         <div id="header-user">
             {{#if currentUser}}
-                Welcome {{currentUser.profile.name}}<br>
-                <a href="#" id="header-user-logout">Logout</a>
+                Welcome {{currentUser.profile.name}}
+                <a href="#" id="header-user-logout" class="button">Logout</a>
             {{else}}
                 {{> loginButtons}}
             {{/if}}
         </div>
     </header>
+
+    <div id="content">
+        Content
+    </div>
 </body>
