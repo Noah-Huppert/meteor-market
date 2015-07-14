@@ -1,15 +1,21 @@
+MeteorSpawnDelay = 10;
+
 Meteor.startup(function(){
     spawnMeteor();
     Meteor.setInterval(function(){
         spawnMeteor();
-    }, 30000);//Every 30 seconds
+    }, MeteorSpawnDelay * 1000);
 
 
     Meteor.setInterval(function(){
         var countdownObj = NextMeteorCountdownModel.get();
 
         if(MeteorModel.Collection.find({}).count() < MeteorModel.MAX_COUNT){
-            NextMeteorCountdownModel.update(countdownObj.value - 1);
+            if(NextMeteorCountdownModel.get().value < 0){
+                NextMeteorCountdownModel.update(MeteorSpawnDelay);
+            } else {
+                NextMeteorCountdownModel.update(countdownObj.value - 1);
+            }
         } else {
             NextMeteorCountdownModel.update(-1);
         }
@@ -40,18 +46,25 @@ function spawnMeteor(){
                 break;
         }
 
+        var nextName = MeteorNames[Meteor.randomInt(0, MeteorNames.length)];
+        var nextNameTries = 0;
+
+        while(MeteorModel.Collection.find({ name: nextName }).count() !== 0 && nextNameTries < MeteorNames.length){
+            nextName = MeteorNames[Meteor.randomInt(0, MeteorNames.length)];
+            nextNameTries ++;//Prevent race condition
+        }
+
         var nextMeteor = MeteorModel.build(
             lastId + 1,
             nextSize,
-            MeteorNames[Meteor.randomInt(0, MeteorNames.length)],
-            new Date()
+            nextName
         );
 
         MeteorModel.Collection.insert(nextMeteor, function(err){
             if(err !== null){
                 console.error(err);
             } else {
-                NextMeteorCountdownModel.update(30);
+                NextMeteorCountdownModel.update(MeteorSpawnDelay);
             }
         });
     }
