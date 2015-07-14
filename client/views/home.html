@@ -1,0 +1,16 @@
+<template name="Home">
+    {{#each meteors}}
+        <div class="card">
+            <img src="/images/meteor.png">
+
+            <div class="content">
+                <div class="title">{{name}}</div>
+                <div class="sub-title">{{size}}</div>
+
+                <div class="actions">
+                    <div class="action" id="buy-meteor" data-meteor-id="{{_id}}">Buy</div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</template>

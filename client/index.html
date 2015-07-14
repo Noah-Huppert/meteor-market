@@ -1,0 +1,24 @@
+<head>
+    <title>Meteor Market</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+
+    <!-- Google Fonts: https://www.google.com/fonts#UsePlace:use/Collection:Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div class="toolbar">
+        <div class="title">Meteor Market</div>
+        <div class="right">
+            {{#if not_equal NextMeteorCountdown -1}}
+                Next meteor arives in {{NextMeteorCountdown}} seconds
+            {{else}}
+                Maximum number of meteors reached
+            {{/if}}
+        </div>
+    </div>
+
+    {{> Router}}
+</body>
